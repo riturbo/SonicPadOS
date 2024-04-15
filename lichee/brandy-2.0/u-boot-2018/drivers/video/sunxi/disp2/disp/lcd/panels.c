@@ -160,6 +160,10 @@ __lcd_panel_t* panel_array[] = {
 #endif
 	/* add new panel below */
 
+#ifdef CONFIG_LCD_SUPPORT_T050K589
+	&t050k589_panel,
+#endif
+
 	NULL,
 };
 

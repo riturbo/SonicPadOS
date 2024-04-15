@@ -2,7 +2,7 @@
 #
 #config file for sun50iw10
 #
-SUPPORT_BOARD=a100 a133 t509 a53 mr813 r818 b810
+SUPPORT_BOARD=r818
 ARCH = arm
 PLATFORM = sun50iw10p1
 

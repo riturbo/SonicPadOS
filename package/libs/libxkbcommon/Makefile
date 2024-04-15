@@ -12,7 +12,7 @@ PKG_VERSION:=0.6.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=http://xkbcommon.org/download/libxkbcommon-0.6.1.tar.xz
+PKG_SOURCE_URL:=https://xkbcommon.org/download/libxkbcommon-0.6.1.tar.xz
 PKG_MD5SUM:=67a8f322b5fa32352272e811bb90dd73
 PKG_MAINTAINER:=Ran Benita<ran234@gmail.com>
 

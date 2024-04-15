@@ -326,15 +326,9 @@ define Image/mkfs/prepare/default
 	chmod 1777 $(TARGET_DIR)/tmp
 	chmod 751 $(TARGET_DIR)/
 	chmod 751 $(TARGET_DIR)/bin $(TARGET_DIR)/dev $(TARGET_DIR)/etc $(TARGET_DIR)/proc $(TARGET_DIR)/rom $(TARGET_DIR)/root $(TARGET_DIR)/sbin
-	chmod 751 $(TARGET_DIR)/sys $(TARGET_DIR)/tmp $(TARGET_DIR)/overlay $(TARGET_DIR)/usr $(TARGET_DIR)/www $(TARGET_DIR)/lib $(TARGET_DIR)/base
+	chmod 751 $(TARGET_DIR)/sys $(TARGET_DIR)/tmp $(TARGET_DIR)/overlay $(TARGET_DIR)/usr $(TARGET_DIR)/lib
 	chmod -R 751 $(TARGET_DIR)/usr/share
 	chmod 755 $(TARGET_DIR)/usr/share
-	chmod -R 777 $(TARGET_DIR)/usr/share/klipper
-	chmod -R 777 $(TARGET_DIR)/usr/share/klippy-env
-	chmod -R 777 $(TARGET_DIR)/usr/share/moonraker
-	chmod -R 777 $(TARGET_DIR)/usr/share/moonraker-env
-	chmod -R 777 $(TARGET_DIR)/usr/share/fluidd
-	chmod -R 777 $(TARGET_DIR)/usr/share/mainsail
 	chmod o+r $(TARGET_DIR)/usr/share/usb.ids.gz
 
 ifneq ($(CONFIG_SUNXI_SEPARATE_APP_FROM_ROOTFS),)

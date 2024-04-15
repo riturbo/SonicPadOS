@@ -72,5 +72,5 @@ disp-objs += lcd/panels.o lcd/lcd_source.o lcd/default_panel.o \
 		lcd/cpu_gg1p4062utsw.o lcd/ls029b3sx02.o \
 		lcd/he0801a068.o lcd/inet_dsi_panel.o lcd/lq101r1sx03.o  \
 		lcd/WilliamLcd.o lcd/bp101wx1-206.o lcd/k101im2qa04.o \
-		lcd/lt9611.o
+		lcd/lt9611.o lcd/t050k589.o
 disp-objs += $(obj_low)

@@ -261,4 +261,8 @@ extern __lcd_panel_t K101_IM2BYL02_L_800X1280_mipi_panel;
 extern __lcd_panel_t lt9611_panel;
 #endif
 
+#ifdef CONFIG_LCD_SUPPORT_T050K589
+extern __lcd_panel_t t050k589_panel;
+#endif
+
 #endif

@@ -155,7 +155,7 @@
 				allwinner,pname = "uart2_tx", "uart2_rx",
 						  "uart2_rts", "uart2_cts";
 				allwinner,function = "uart2";
-				allwinner,muxsel = <2>;
+				allwinner,muxsel = <4>;
 				allwinner,drive = <1>;
 				allwinner,pull = <1>;
 			};
@@ -163,9 +163,9 @@
 			uart2_pins_b: uart2@1 {
 				allwinner,pins = "PB0", "PB1", "PB2", "PB3";
 				allwinner,function = "io_disabled";
-				allwinner,muxsel = <7>;
+				allwinner,muxsel = <4>;
 				allwinner,drive = <1>;
-				allwinner,pull = <0>;
+				allwinner,pull = <1>;
 			};
 
 			uart3_pins_a: uart3@0 {

@@ -72,11 +72,9 @@ else
 CONFIGURE_ARGS += --disable-vc4
 endif
 
-ifeq ($(CONFIG_PACKAGE_valgrind),y)
-CONFIGURE_ARGS += --enable-valgrind
-else
+
 CONFIGURE_ARGS += --disable-valgrind
-endif
+
 
 ifeq ($(CONFIG_PACKAGE_eudev),y)
 CONFIGURE_ARGS += --enable-udev

@@ -72,9 +72,9 @@ void main(void)
 
 	mmu_enable(dram_size);
 
-	status = sunxi_board_late_init();
-	if (status)
-		goto _BOOT_ERROR;
+	//status = sunxi_board_late_init();
+	//if (status)
+	//	goto _BOOT_ERROR;
 
 	status = load_package();
 	if(status == 0 )

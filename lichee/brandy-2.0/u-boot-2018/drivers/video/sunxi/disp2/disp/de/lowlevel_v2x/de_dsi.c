@@ -934,7 +934,11 @@ static s32 dsi_basic_cfg(u32 sel, disp_panel_para *panel)
 		    dsi_start_delay;
 		dsi_dev[sel]->dsi_basic_ctl1.bits.video_precision_mode_align =
 		    1;
+#ifdef CONFIG_LCD_SUPPORT_T050K589
+		dsi_dev[sel]->dsi_basic_ctl1.bits.video_frame_start = 0;
+#else
 		dsi_dev[sel]->dsi_basic_ctl1.bits.video_frame_start = 1;
+#endif
 		dsi_dev[sel]->dsi_trans_start.bits.trans_start_set = 10;
 		dsi_dev[sel]->dsi_trans_zero.bits.hs_zero_reduce_set = 0;
 		dsi_dev[sel]->dsi_basic_ctl1.bits.dsi_mode = 1;

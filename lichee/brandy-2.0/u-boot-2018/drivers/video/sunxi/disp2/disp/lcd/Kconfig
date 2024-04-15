@@ -228,3 +228,8 @@ config LCD_SUPPORT_LT9611
 	---help---
 		If you want to support lt9611 bridge panel for display driver, select it.
 
+config LCD_SUPPORT_T050K589
+	bool "LCD support T050K589 panel"
+	default n
+	---help---
+		If you want to support T050K589 panel for display driver, select it.

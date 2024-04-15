@@ -25,7 +25,7 @@ storage_type    = -1
 advert_enable   = 0
 burn_key        = 1
 dragonboard_test= 0
-power_mode		= 2
+power_mode		= 3
 
 ;----------------------------------------------------------------------------------
 ;   system configuration
@@ -38,15 +38,50 @@ power_mode		= 2
 ;dldo1_vol							---set dldo1 voltage,mV,500-3500,100mV/step
 ;----------------------------------------------------------------------------------
 [power_sply]
-;dcdc1_vol                  = 1003300
-;aldo1_vol                  = 1001800
-;aldo2_vol                  = 1001800
-;aldo3_vol                  = 1003300
-;dldo1_vol                  =    3300
-;eldo1_vol                  = 1001800
-;eldo3_vol                  = 1001800
-;fldo1_vol                  = 100900
-;dc1sw_vol                  = 1003300
+dcdc3_vol                  = 1001100
+;dram change to 1.1v
+aldo1_vol                  = 1002800
+;aldo1 for AVCC-CSI     
+aldo2_vol                  = 1001800
+;aldo2 1.8V for PE
+aldo3_vol                  = 1001800
+;aldo3 1.8V for PL
+aldo4_vol                  = 1001800
+;aldo4 for vdd18-dram pll avcc
+bldo1_vol                  = 1001800
+;bldo1 1.8V for PG
+bldo2_vol                  = 1001800
+;bldo2 for vdd18-lpddr
+bldo3_vol                  = 1002800
+;bdlo3 2.8V for AFVCC
+cldo1_vol                  = 1001800
+cldo2_vol                  = 1003300
+cldo3_vol                  = 1003300
+cldo4_vol                  = 1003300
+;cldo4 for LCD, out to 3.3V
+cpusldo_vol                = 100900
+dcdc1_mode                 = 1
+dcdc2_mode                 = 1
+
+;----------------------------------------------------------------------------------
+; gpio_bias
+; set gpio group withstand voltage
+; pc_bias = 1800 is emmc
+; pc_bias = 3300 is nand
+;----------------------------------------------------------------------------------
+[gpio_bias]
+device_type                = "gpio_bias"
+pl_bias                    = 1800
+pl_supply                  = "aldo3_vol"
+;pl_bias change to 1800
+pc_bias                    = 1800
+pc_supply                  = "cldo1_vol"
+;pc_bias                    = 3300
+;pc_supply                  = "cldo3_vol"
+
+[power_delay]
+device_type                = "power_delay"
+aldo3_vol_delay            = 20000
 
 [card_boot]
 logical_start   = 40960
@@ -156,13 +191,10 @@ sdc_io_1v8	= 1
 ;sdc_boot0_sup_1v8 = 1
 ;sdc_type	= "tm4"
 
-[gpio_bias]
-pc_bias		= 1800
-
 [twi_para]
 twi_port        = 0
-twi_scl         = port:PH14<2><default><default><default>
-twi_sda         = port:PH15<2><default><default><default>
+twi_scl         = port:PH0<2><default><default><default>
+twi_sda         = port:PH1<2><default><default><default>
 
 [auto_print]
 auto_print_used = 1
@@ -187,136 +219,47 @@ pll9            = 297
 pll10           = 264
 
 ;*****************************************************************************
-;
-;dram select configuration
-;
-;select_mode    :       dram模式选择,   0:不进行自动识别
-;                                       1:gpio识别模式(dram_para, dram_para1-15, 共16组有效)
-;                                       2:gpadc识别模式(dram_para, dram_para1-7, 共8组有效)
-;                                       3:1个IO+gpadc识别模式(dram_para, dram_para1-15, 共16组有效)。其中IO配置优先级按select_gpio0>select_gpio1>select_gpio2>select_gpio3
-;gpadc_channel  :       选择gpadc通道   有效值(0-3)
-;select_gpio1-4 :       选择gpio pin
-;*****************************************************************************
-
-
-[dram_select_para]
-select_mode     = 2
-gpadc_channel   = 1
-select_gpio0    =
-select_gpio1    =
-select_gpio2    =
-select_gpio3    =
-
-
-;*****************************************************************************
 ;sdram configuration
 ;
 ;*****************************************************************************
 [dram_para]
 
-dram_clk       = 720
-dram_type      = 3
+dram_clk       = 888
+dram_type      = 8
 dram_dx_odt    = 0x07070707
-dram_dx_dri    = 0x0c0c0c0c
+dram_dx_dri    = 0x0d0d0d0d
 dram_ca_dri    = 0x0e0e
-dram_para0     = 0x15101212
-dram_para1     = 0x30FA
-dram_para2     = 0x0000
-dram_mr0       = 0x840
-dram_mr1       = 0x4
-dram_mr2       = 0x8
-dram_mr3       = 0x0
-dram_mr4       = 0x0
+dram_para0     = 0x0d0a050c
+dram_para1     = 0x30ea
+dram_para2     = 0x1000
+dram_mr0       = 0x0
+dram_mr1       = 0x34
+dram_mr2       = 0x1b
+dram_mr3       = 0x33
+dram_mr4       = 0x3
 dram_mr5       = 0x0
 dram_mr6       = 0x0
-dram_mr11      = 0x0
-dram_mr12      = 0x0
+dram_mr11      = 0x04
+dram_mr12      = 0x72
 dram_mr13      = 0x0
-dram_mr14      = 0x0
+dram_mr14      = 0x7
 dram_mr16      = 0x0
 dram_mr17      = 0x0
-dram_mr22      = 0x0
-dram_tpr0      = 0x0
-dram_tpr1      = 0x0
+dram_mr22      = 0x26
+dram_tpr0      = 0x06060606
+dram_tpr1      = 0x04040404
 dram_tpr2      = 0x0
 dram_tpr3      = 0x0
-dram_tpr6      = 0x33808080
-dram_tpr10     = 0x002f7458
-dram_tpr11     = 0x0f0b0e0c
-dram_tpr12     = 0x19191818
-dram_tpr13     = 0x40
-dram_tpr14     = 0x26232323
-
-[dram_para3]
-
-dram_clk       = 720
-dram_type      = 4
-dram_dx_odt    = 0x03030303
-dram_dx_dri    = 0x0c0c0c0c
-dram_ca_dri    = 0x1919
-dram_para0     = 0x12131615
-dram_para1     = 0x60FA
-dram_para2     = 0x0000
-dram_mr0       = 0x840
-dram_mr1       = 0x601
-dram_mr2       = 0x8
-dram_mr3       = 0x0
-dram_mr4       = 0x0
-dram_mr5       = 0x0400
-dram_mr6       = 0x862
-dram_mr11      = 0x0
-dram_mr12      = 0x0
-dram_mr13      = 0x0
-dram_mr14      = 0x0
-dram_mr16      = 0x0
-dram_mr17      = 0x0
-dram_mr22      = 0x0
-dram_tpr0      = 0x0
-dram_tpr1      = 0x0
-dram_tpr2      = 0x0
-dram_tpr3      = 0x0
-dram_tpr6      = 0x0000a000
-dram_tpr10     = 0x002f7777
-dram_tpr11     = 0x0f101511
-dram_tpr12     = 0x0f0f1512
-dram_tpr13     = 0x00001d00
-dram_tpr14     = 0x19191c1c
+dram_tpr6      = 0x48000000
+dram_tpr10     = 0x00273333
+dram_tpr11     = 0x241f1923
+dram_tpr12     = 0x14151313
+dram_tpr13     = 0x81d20
+dram_tpr14     = 0x2023211f
 
 
-[dram_para7]
 
-dram_clk       = 720
-dram_type      = 3
-dram_dx_odt    = 0x07070707
-dram_dx_dri    = 0x0c0c0c0c
-dram_ca_dri    = 0x0e0e
-dram_para0     = 0x15101212
-dram_para1     = 0x30FA
-dram_para2     = 0x0000
-dram_mr0       = 0x840
-dram_mr1       = 0x4
-dram_mr2       = 0x8
-dram_mr3       = 0x0
-dram_mr4       = 0x0
-dram_mr5       = 0x0
-dram_mr6       = 0x0
-dram_mr11      = 0x0
-dram_mr12      = 0x0
-dram_mr13      = 0x0
-dram_mr14      = 0x0
-dram_mr16      = 0x0
-dram_mr17      = 0x0
-dram_mr22      = 0x0
-dram_tpr0      = 0x0
-dram_tpr1      = 0x0
-dram_tpr2      = 0x0
-dram_tpr3      = 0x0
-dram_tpr6      = 0x33808080
-dram_tpr10     = 0x002f7458
-dram_tpr11     = 0x0f0b0e0c
-dram_tpr12     = 0x19191818
-dram_tpr13     = 0x40
-dram_tpr14     = 0x26232323
+
 
 ;----------------------------------------------------------------------------------
 ;os life cycle para configuration
@@ -332,14 +275,6 @@ uart0_port       = 0
 uart0_type       = 2
 uart0_tx         = port:PB09<2><1><default><default>
 uart0_rx         = port:PB10<2><1><default><default>
-
-[uart1]
-uart1_used       = 1
-uart1_type       = 4
-uart1_tx         = port:PG06<2><1><default><default>
-uart1_rx         = port:PG07<2><1><default><default>
-uart1_rts        = port:PG08<2><1><default><default>
-uart1_cts        = port:PG09<2><1><default><default>
 
 [nand0_para]
 nand0_support_2ch    = 0

@@ -807,6 +807,7 @@ int de_rtmx_set_lay_laddr(unsigned int sel, unsigned int chno,
 	else
 		addr_off[0] = addr[0] + pitch[0] * y0 + x0 * ycnt;
 		/* Y/ARGB */
+	__wrn("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxfb:0x%xl,%d,0x%xl\n", addr_off[0], chno, addr[0]);
 
 	haddr[0] = (addr_off[0] >> 32) & 0xff;
 	if (chno >= vi_chno) {

@@ -157,5 +157,5 @@ extern struct __lcd_panel k101im2qa04_panel;
 #ifdef CONFIG_LCD_SUPPORT_LT9611
 extern struct __lcd_panel lt9611_panel;
 #endif
-
+extern struct __lcd_panel t050k589_panel;
 #endif

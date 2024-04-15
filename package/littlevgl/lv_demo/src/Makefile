@@ -39,7 +39,7 @@ INCLUDES += $(foreach dir,$(SRCDIRS),-I$(dir))  \
 
 SRCS = $(foreach dir,$(SRCDIRS),$(wildcard $(dir)/*.c))
 OBJS = $(SRCS:.c=.o)
-#LIB +=
+LIB += -lpthread
 
 %.o: %.c
 	$(CC) $(INCLUDES) $(LIB) -c -o $@ $<

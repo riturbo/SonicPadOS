@@ -11,3 +11,9 @@ It is recommended to use Ubuntu18.04 to compile sonic_pad_os, and install the re
   4.4 swupdate_pack_swu -ab
 5. U flash drive upgrade method: Copy the config.ini and t800-sonic_lcd-ab_1.0.6.48.57.swu files in the sonic_pad_os/out/r818-sonic_lcd/ directory to the root directory of the U flash drive. The firmware version number must be greater than the current version number of the device, otherwise the upgrade box will not pop up.
 6. Computer upgrade method: The image path generated after compilation is sonic_pad_os/out/r818-sonic_lcd/t800-sonic_lcd_uart0.img, please refer to the link for the burning tool and upgrade method: https://github.com/CrealityOfficial/Creality_Sonic_Pad_Firmware
+root
+passwd:cxsw-sonic_2023
+
+
+./out/host/bin/mkbootimg --kernel  /home/wy/src/rt_smart/rt-thread/bsp/allwinner/r818/rtthread.bin --ramdisk  ramdisk.img --board  r818-sonic_lcd --base  0x40000000 --kernel_offset  0x200000 --ramdisk_offset  0x02000000 -o  /home/wy/src/SonicPadOS/out/r818-sonic_lcd/boot.img
+cp /home/wy/src/rt_smart/userapps/apps/build/ext4.img  ./out/r818-sonic_lcd/rootfs.img

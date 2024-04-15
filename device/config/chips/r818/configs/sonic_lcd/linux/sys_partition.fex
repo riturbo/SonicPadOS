@@ -40,12 +40,6 @@ size = 512
     user_type    = 0x8000
 
 [partition]
-    name         = boot-resource1
-    size         = 4096
-    downloadfile = "boot-resource1.fex"
-    user_type    = 0x8000
-
-[partition]
     name         = env
     size         = 1024
     downloadfile = "env.fex"
@@ -58,26 +52,14 @@ size = 512
     user_type    = 0x8000
 
 [partition]
-    name         = bootA
+    name         = boot
     size         = 30720
     downloadfile = "boot.fex"
     user_type    = 0x8000
 
 [partition]
-    name         = bootB
-    size         = 30720
-    downloadfile = "boot.fex"
-    user_type    = 0x8000
-
-[partition]
-    name         = rootfsA
-    size         = 1048576
-    downloadfile = "rootfs.fex"
-    user_type    = 0x8000
-
-[partition]
-    name         = rootfsB
-    size         = 1048576
+    name         = rootfs
+    size         = 1200000
     downloadfile = "rootfs.fex"
     user_type    = 0x8000
 
@@ -86,30 +68,6 @@ size = 512
     ;size         = 61440
     size         = 614400
     user_type    = 0x8000
-
-[partition]
-    name         = private
-    size         = 1024
-    user_type    = 0x8000
-
-[partition]
-    name         = pstore
-    size         = 2048
-    user_type    = 0x8000
-
-;   recovery分区说明
-;   如果启用了OTA升级，默认以boot_initramfs.img作为recovery.fex，否则recovery.fex为空
-
-;[partition]
-;    name         = recovery
-;    size         = 32768
-;    downloadfile = "recovery.fex"
-;    user_type    = 0x8000
-
-;[partition]
-;    name         = misc
-;    size         = 1024
-;    user_type    = 0x8000
 
 [partition]
     name         = UDISK

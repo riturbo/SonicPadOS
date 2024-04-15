@@ -367,6 +367,7 @@ extern __s32 tv_init(void);
 extern int tv_ac200_init(void);
 extern void disp_fdt_init(void);
 extern struct disp_eink_manager *disp_get_eink_manager(unsigned int disp);
+#include <asm/arch/gpio.h>
 
 s32 drv_disp_init(void)
 {
@@ -380,7 +381,19 @@ s32 drv_disp_init(void)
 
 	tick_printf("%s\n", __func__);
 	disp_fdt_init();
+sunxi_gpio_set_cfgpin(SUNXI_GPF(0), 2);
+sunxi_gpio_set_cfgpin(SUNXI_GPF(1), 2);
+sunxi_gpio_set_cfgpin(SUNXI_GPF(3), 2);
+sunxi_gpio_set_cfgpin(SUNXI_GPF(5), 2);
 
+	sunxi_gpio_set_cfgpin(SUNXI_GPB(0), 4);
+	sunxi_gpio_set_cfgpin(SUNXI_GPB(1), 4);
+	sunxi_gpio_set_cfgpin(SUNXI_GPB(2), 4);
+	sunxi_gpio_set_cfgpin(SUNXI_GPB(3), 4);
+		sunxi_gpio_set_pull(SUNXI_GPB(0), 1);//JTAG_MS
+	sunxi_gpio_set_pull(SUNXI_GPB(1), 2);//JTAG_CK
+	//sunxi_gpio_set_pull(SUNXI_GPB(2), 4);//JTAG_DO
+	sunxi_gpio_set_pull(SUNXI_GPB(3), 1);//JTAG_DI
 	/* check if the resolution of lcd supported */
 	drv_disp_check_spec();
 

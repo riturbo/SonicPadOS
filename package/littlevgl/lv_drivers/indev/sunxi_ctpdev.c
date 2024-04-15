@@ -6,6 +6,7 @@
 /*********************
  *      INCLUDES
  *********************/
+#include <pthread.h>
 #include "sunxi_ctpdev.h"
 #if USE_SUNXI_CTPDEV != 0
 

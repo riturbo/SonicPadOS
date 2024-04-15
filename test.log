@@ -1,0 +1,364 @@
+  GEN     .version
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  LD      init/built-in.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  OBJCOPY arch/arm64/boot/Image
+  Building modules, stage 2.
+  MODPOST 11 modules
+  GZIP    arch/arm64/boot/Image.gz
+
+make[5]: Leaving directory '/home/wy/src/SonicPadOS/lichee/linux-4.9'
+cmp -s /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/linux-4.9.191/vmlinux /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/vmlinux.debug || { aarch64-openwrt-linux-gnu-objcopy -O binary -R .reginfo -R .notes -R .note -R .comment -R .mdebug -R .note.gnu.build-id -S /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/linux-4.9.191/vmlinux /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/vmlinux; aarch64-openwrt-linux-gnu-objcopy -R .reginfo -R .notes -R .note -R .comment -R .mdebug -R .note.gnu.build-id -S /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/linux-4.9.191/vmlinux /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/vmlinux.elf; cp -fpR /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/linux-4.9.191/vmlinux /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/vmlinux.debug; cp -fpR /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/linux-4.9.191/arch/arm64/boot//Image /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/bImage;  cp -fpR /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/linux-4.9.191/arch/arm64/boot//Image.gz /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/Image.gz;  }
+touch /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/linux-4.9.191/.image
+make -C ../generic/image compile install TARGET_BUILD=
+make[5]: Entering directory '/home/wy/src/SonicPadOS/target/allwinner/generic/image'
+make[5]: Nothing to be done for 'compile'.
+mkdir -p /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/tmp
+# Use symbolic permissions to avoid clobbering SUID/SGID/sticky bits
+find /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs -type f -not -perm /0100 -not -name 'ssh_host*' -not -name 'shadow' -print0 | xargs -r -0 chmod u+rw,g+r,o+r
+find /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs -type f -perm /0100 -print0 | xargs -r -0 chmod u+rwx,g+rx,o+rx
+find /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs -type d -print0 | xargs -r -0 chmod u+rwx,g+rx,o+rx
+install -d -m0755 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/tmp /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/overlay
+chmod 1777 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/tmp
+chmod 751 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/
+chmod 751 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/bin /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/dev /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/etc /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/proc /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/rom /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/root /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/sbin
+chmod 751 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/sys /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/tmp /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/overlay /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/usr /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/lib
+chmod -R 751 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/usr/share
+chmod 755 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/usr/share
+chmod o+r /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/usr/share/usb.ids.gz
+cp -fpR /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/Image.gz /home/wy/src/SonicPadOS/out/r818-sonic_lcd/r818-sonic_lcd-Image.gz
+mkimage -A arm64 -O linux -T kernel -C  gzip -a  0x40080000 -e  0x40080000 -n 'AARCH64 OpenWrt Linux-4.9.191' -d  /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/Image.gz  /home/wy/src/SonicPadOS/out/r818-sonic_lcd/r818-sonic_lcd-uImage 
+Image Name:   AARCH64 OpenWrt Linux-4.9.191
+Created:      Mon Apr 15 15:19:43 2024
+Image Type:   AArch64 Linux Kernel Image (gzip compressed)
+Data Size:    4803921 Bytes = 4691.33 KiB = 4.58 MiB
+Load Address: 40080000
+Entry Point:  40080000
+./out/host/bin/mkbootimg --kernel  /home/wy/src/SonicPadOS/out/r818-sonic_lcd/rtthread.bin --ramdisk  ramdisk.img --board  r818-sonic_lcd --base  0x40000000 --kernel_offset  0x200000 --ramdisk_offset  0x02000000 -o  /home/wy/src/SonicPadOS/out/r818-sonic_lcd/boot.img
+rm -f /home/wy/src/SonicPadOS/out/r818-sonic_lcd/boot.img
+rm -f /home/wy/src/SonicPadOS/out/r818-sonic_lcd/boot_initramfs.img
+cp -fpR /home/wy/src/SonicPadOS/out/r818-sonic_lcd/r818-sonic_lcd-boot.img /home/wy/src/SonicPadOS/out/r818-sonic_lcd/boot.img
+/home/wy/src/SonicPadOS/out/host/bin/mksquashfs4 /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/root.squashfs -noappend -root-owned -comp gzip -b 256k -p '/dev d 755 0 0' -p '/dev/console c 600 0 0 5 1' -processors 6
+Parallel mksquashfs: Using 6 processors
+Creating 4.0 filesystem on /home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/root.squashfs, block size 262144.
+Pseudo file "/dev" exists in source filesystem "/home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/rootfs/dev".
+Ignoring, exclude it (-e/-ef) to override.
+[================================================================================================================================================================================================|] 9887/9887 100%
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 262144
+        compressed data, compressed metadata, compressed fragments,
+        compressed xattrs, compressed ids
+        duplicates are removed
+Filesystem size 127647.16 Kbytes (124.66 Mbytes)
+        36.54% of uncompressed filesystem size (349339.45 Kbytes)
+Inode table size 101934 bytes (99.54 Kbytes)
+        28.65% of uncompressed inode table size (355830 bytes)
+Directory table size 107081 bytes (104.57 Kbytes)
+        47.01% of uncompressed directory table size (227801 bytes)
+Number of duplicate files found 1892
+Number of inodes 10690
+Number of files 9160
+Number of fragments 487
+Number of symbolic links  857
+Number of device nodes 1
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 672
+Number of ids (unique uids + gids) 1
+Number of uids 1
+        root (0)
+Number of gids 1
+        root (0)
+rm -f /home/wy/src/SonicPadOS/out/r818-sonic_lcd/rootfs.img
+rm -f /home/wy/src/SonicPadOS/out/r818-sonic_lcd/usr.img
+dd if=/home/wy/src/SonicPadOS/out/r818-sonic_lcd/compile_dir/target/linux-r818-sonic_lcd/root.squashfs of=/home/wy/src/SonicPadOS/out/r818-sonic_lcd/rootfs.img bs=128k conv=sync
+997+1 records in
+998+0 records out
+130809856 bytes (131 MB, 125 MiB) copied, 0.0726148 s, 1.8 GB/s
+( cd /home/wy/src/SonicPadOS/out/r818-sonic_lcd ; find -maxdepth 1 -type f \! -name 'md5sums'  -printf "%P\n" | sort | xargs md5sum --binary > md5sums )
+( cd /home/wy/src/SonicPadOS/out/r818-sonic_lcd ; find -maxdepth 1 -type f \! -name 'md5sums'  -printf "%P\n" | sort | xargs openssl dgst -sha256 > sha256sums )
+make[5]: Leaving directory '/home/wy/src/SonicPadOS/target/allwinner/generic/image'
+make[4]: Leaving directory '/home/wy/src/SonicPadOS/target/allwinner/r818-sonic_lcd'
+make[3]: Leaving directory '/home/wy/src/SonicPadOS/target/allwinner'
+make[2]: Leaving directory '/home/wy/src/SonicPadOS'
+export MAKEFLAGS= ;make -w -r package/index
+make[2]: Entering directory '/home/wy/src/SonicPadOS'
+Generating package index...
+Signing key has not been configured
+make[2]: Leaving directory '/home/wy/src/SonicPadOS'
+make[1]: Leaving directory '/home/wy/src/SonicPadOS'
+
+#### make completed successfully (02:20 (mm:ss)) ####
+
+--==========--
+PACK_CHIP         sun50iw10p1
+PACK_PLATFORM     tina
+PACK_BOARD        r818-sonic_lcd
+PACK_KERN        
+PACK_DEBUG        uart0
+PACK_SIG          none
+PACK_SECURE       none
+PACK_MODE         normal
+PACK_FUNC         android
+PACK_PROGRAMMER   none
+PACK_TAR_IMAGE    none
+PACK_TOPDIR       /home/wy/src/SonicPadOS
+--==========--
+No kernel param, parse it from r818
+copying tools file
+copying configs file
+storage_type value is -1
+copying boot resource
+copying boot resource1
+
+LZMA 4.65 : Igor Pavlov : Public domain : 2009-02-03
+copying boot file
+make user resource for : /home/wy/src/SonicPadOS/out/r818-sonic_lcd/image/sys_partition.fex
+handle partition user-res
+no user resource partitions
+APP_PART_DOWNLOAD_FILE = /home/wy/src/SonicPadOS/out/r818-sonic_lcd/image/app.fex
+Need size of filesystem
+no data resource partitions
+Conver script to dts ok.
+don't build dtbo ...
+update scp
+dtbpath=/home/wy/src/SonicPadOS/out/r818-sonic_lcd/image/sunxi.fex
+scppath=/home/wy/src/SonicPadOS/out/r818-sonic_lcd/image/scp.fex
+fdt_path_offset:find path /soc/s_uart fail
+fdt_path_offset:find path /soc/pmu/charger fail
+fdt_path_offset:find path /soc/pmu1/charger fail
+vdd_cpua:0x00000000
+vdd_cpub:0x00000000
+vdd_sys:0x00000000
+vcc_pll:0x00000000
+fdt_getprop_u32: no prop ir_protocol_used 
+rc5_used = 0
+fdt_getprop_u32: no prop ir_power_key_code 
+fdt_getprop_u32: no prop ir_power_key_code0 
+fdt_getprop_u32: no prop ir_power_key_code1 
+fdt_getprop_u32: no prop ir_power_key_code2 
+fdt_getprop_u32: no prop ir_power_key_code3 
+fdt_getprop_u32: no prop ir_power_key_code4 
+fdt_getprop_u32: no prop ir_power_key_code5 
+fdt_getprop_u32: no prop ir_power_key_code6 
+fdt_getprop_u32: no prop ir_power_key_code7 
+fdt_getprop_u32: no prop ir_power_key_code8 
+fdt_getprop_u32: no prop ir_power_key_code9 
+fdt_getprop_u32: no prop ir_power_key_code10 
+fdt_getprop_u32: no prop ir_power_key_code11 
+fdt_getprop_u32: no prop ir_power_key_code12 
+fdt_getprop_u32: no prop ir_power_key_code13 
+fdt_getprop_u32: no prop ir_power_key_code14 
+fdt_getprop_u32: no prop ir_power_key_code15 
+fdt_getprop_u32: no prop ir_power_key_code16 
+fdt_getprop_u32: no prop ir_power_key_code17 
+fdt_getprop_u32: no prop ir_power_key_code18 
+fdt_getprop_u32: no prop ir_power_key_code19 
+fdt_getprop_u32: no prop ir_power_key_code20 
+fdt_getprop_u32: no prop ir_power_key_code21 
+fdt_getprop_u32: no prop ir_power_key_code22 
+fdt_getprop_u32: no prop ir_power_key_code23 
+fdt_getprop_u32: no prop ir_power_key_code24 
+fdt_getprop_u32: no prop ir_power_key_code25 
+fdt_getprop_u32: no prop ir_power_key_code26 
+fdt_getprop_u32: no prop ir_power_key_code27 
+fdt_getprop_u32: no prop ir_power_key_code28 
+fdt_getprop_u32: no prop ir_power_key_code29 
+fdt_getprop_u32: no prop ir_power_key_code30 
+fdt_getprop_u32: no prop ir_power_key_code31 
+fdt_getprop_u32: no prop ir_power_key_code32 
+fdt_getprop_u32: no prop ir_power_key_code33 
+fdt_getprop_u32: no prop ir_power_key_code34 
+fdt_getprop_u32: no prop ir_power_key_code35 
+fdt_getprop_u32: no prop ir_power_key_code36 
+fdt_getprop_u32: no prop ir_power_key_code37 
+fdt_getprop_u32: no prop ir_power_key_code38 
+fdt_getprop_u32: no prop ir_power_key_code39 
+fdt_getprop_u32: no prop ir_power_key_code40 
+fdt_getprop_u32: no prop ir_power_key_code41 
+fdt_getprop_u32: no prop ir_power_key_code42 
+fdt_getprop_u32: no prop ir_power_key_code43 
+fdt_getprop_u32: no prop ir_power_key_code44 
+fdt_getprop_u32: no prop ir_power_key_code45 
+fdt_getprop_u32: no prop ir_power_key_code46 
+fdt_getprop_u32: no prop ir_power_key_code47 
+fdt_getprop_u32: no prop ir_power_key_code48 
+fdt_getprop_u32: no prop ir_power_key_code49 
+fdt_getprop_u32: no prop ir_power_key_code50 
+fdt_getprop_u32: no prop ir_power_key_code51 
+fdt_getprop_u32: no prop ir_power_key_code52 
+fdt_getprop_u32: no prop ir_power_key_code53 
+fdt_getprop_u32: no prop ir_power_key_code54 
+fdt_getprop_u32: no prop ir_power_key_code55 
+fdt_getprop_u32: no prop ir_power_key_code56 
+fdt_getprop_u32: no prop ir_power_key_code57 
+fdt_getprop_u32: no prop ir_power_key_code58 
+fdt_getprop_u32: no prop ir_power_key_code59 
+fdt_getprop_u32: no prop ir_power_key_code60 
+fdt_getprop_u32: no prop ir_power_key_code61 
+fdt_getprop_u32: no prop ir_power_key_code62 
+fdt_getprop_u32: no prop ir_power_key_code63 
+fdt_path_offset:find path /dvfs_table fail
+fdt_path_offset:find path /soc/box_start_os0 fail
+key_group = 0   key_index = 0   trigger_mode = 0        pmukey_used = 254
+bt_hostwake_enable = 1  bt_gpio_port = 0        bt_gpio_num = 0,                        pmukey_used = 0xfefe00fe
+arisc_para  version : 3
+arisc_para  magic : CPUs
+no need to copy paras
+update scp finish!
+pack boot package
+GetPrivateProfileSection read to end
+content_count=4
+--mkenvimage create redundant env data!--
+---redundant env data size 0x20000---
+packing for tina linux
+FIT description: Simple Image with single linux kernel
+Created:         Sun Jan 12 22:09:33 2025
+ Image 0 (kernel@1)
+  Description:  aw linux Image.gz
+  Created:      Sun Jan 12 22:09:33 2025
+  Type:         Kernel Image
+  Compression:  gzip compressed
+  Data Size:    4803921 Bytes = 4691.33 KiB = 4.58 MiB
+  Architecture: AArch64
+  OS:           Linux
+  Load Address: 0x40080000
+  Entry Point:  0x40080000
+ Default Configuration: 'config@1'
+ Configuration 0 (config@1)
+  Description:  only linux kernel
+  Kernel:       kernel@1
+normal
+this is not a partition key
+gpt_head->header_crc32 = 0x41f3d61d
+GPT----part num 9---
+gpt_entry: 128
+gpt_header: 92
+GPT:boot-resource: 400           13ff        
+GPT:env         : 1400          17ff        
+GPT:env-redund  : 1800          1bff        
+GPT:boot        : 1c00          93ff        
+GPT:rootfs      : 9400          12e37f      
+GPT:rootfs_data : 12e380        1c437f      
+GPT:private     : 1c4380        1c477f      
+GPT:pstore      : 1c4780        1c4f7f      
+GPT:UDISK       : 1c4f80        1c4f8f      
+update gpt file ok
+update mbr file ok
+====================================
+show "sys_partition_for_dragon.fex" message
+------------------------------------
+  [mbr]
+  mbr_size  : 512 Kbyte
+------------------------------------
+  partition_name  : boot-resource
+  partition_size  : 4096
+  downloadfile  : boot-resource.fex
+  boot-resource.fex size : 1.8M byte
+------------------------------------
+  partition_name  : env
+  partition_size  : 1024
+  downloadfile  : env.fex
+  env.fex size : 128K byte
+------------------------------------
+  partition_name  : env-redund
+  partition_size  : 1024
+  downloadfile  : env.fex
+  env.fex size : 128K byte
+------------------------------------
+  partition_name  : boot
+  partition_size  : 30720
+  downloadfile  : boot.fex
+  boot.fex -> /home/wy/src/SonicPadOS/out/r818-sonic_lcd/boot.img
+  boot.img size : 11M byte
+------------------------------------
+  partition_name  : rootfs
+  partition_size  : 1200000
+  downloadfile  : rootfs.fex
+  rootfs.fex -> /home/wy/src/SonicPadOS/out/r818-sonic_lcd/rootfs.img
+  rootfs.img size : 125M byte
+------------------------------------
+  partition_name  : rootfs_data
+  partition_size  : 614400
+------------------------------------
+  partition_name  : private
+  partition_size  : 1024
+------------------------------------
+  partition_name  : pstore
+  partition_size  : 2048
+------------------------------------
+  partition_name  : UDISK
+------------------------------------
+/home/wy/src/SonicPadOS/out/host/bin/
+/home/wy/src/SonicPadOS/out/r818-sonic_lcd/image
+Begin Parse sys_partion.fex
+Add partion boot-resource.fex BOOT-RESOURCE_FEX
+Add partion very boot-resource.fex BOOT-RESOURCE_FEX
+FilePath: boot-resource.fex
+FileLength=1ccc00Add partion env.fex ENV_FEX000000000
+Add partion very env.fex ENV_FEX000000000
+FilePath: env.fex
+FileLength=20000Add partion env.fex ENV_FEX000000000
+Add partion very env.fex ENV_FEX000000000
+FilePath: env.fex
+FileLength=20000Add partion boot.fex BOOT_FEX00000000
+Add partion very boot.fex BOOT_FEX00000000
+FilePath: boot.fex
+FileLength=a76800Add partion rootfs.fex ROOTFS_FEX000000
+Add partion very rootfs.fex ROOTFS_FEX000000
+FilePath: rootfs.fex
+FileLength=7cc0000sys_config.fex Len: 0x302c
+config.fex Len: 0x2800
+board.fex Len: 0x400
+split_xxxx.fex Len: 0x200
+sys_partition.fex Len: 0xc46
+sunxi.fex Len: 0x22400
+boot0_nand.fex Len: 0x10000
+boot0_sdcard.fex Len: 0x10000
+u-boot.fex Len: 0x8c000
+u-boot-crash.fex Len: 0x25
+toc1.fex Len: 0x8
+toc0.fex Len: 0x8
+fes1.fex Len: 0xafc0
+boot_package.fex Len: 0xd4000
+usbtool.fex Len: 0x2d200
+usbtool_crash.fex Len: 0x97a00
+aultools.fex Len: 0x28ab0
+aultls32.fex Len: 0x25205
+cardtool.fex Len: 0x11e00
+cardscript.fex Len: 0x779
+sunxi_gpt.fex Len: 0x2000
+sunxi_mbr.fex Len: 0x10000
+dlinfo.fex Len: 0x4000
+arisc.fex Len: 0x6
+vmlinux.fex Len: 0x8
+boot-resource.fex Len: 0x1ccc00
+Vboot-resource.fex Len: 0x4
+env.fex Len: 0x20000
+Venv.fex Len: 0x4
+env.fex Len: 0x20000
+Venv.fex Len: 0x4
+boot.fex Len: 0xa76800
+Vboot.fex Len: 0x4
+rootfs.fex Len: 0x7cc0000
+Vrootfs.fex Len: 0x4
+BuildImg 0
+Dragon execute image.cfg SUCCESS !
+----------image is for nand/emmc----------
+----------image is at----------
+
+/home/wy/src/SonicPadOS/out/r818-sonic_lcd/tina_r818-sonic_lcd_uart0.img
+
+==========post-dragon========
+
+/home/wy/src/SonicPadOS/out/r818-sonic_lcd/t800-sonic_lcd_uart0.img
+
+==========post-dragon done========

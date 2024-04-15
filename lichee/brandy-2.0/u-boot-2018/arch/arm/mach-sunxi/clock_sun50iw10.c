@@ -322,6 +322,7 @@ int usb_close_clock(void)
 
 int sunxi_set_sramc_mode(void)
 {
+	#if 0
 	u32 reg_val;
 	struct sunxi_ccm_reg *const ccm =
 		(struct sunxi_ccm_reg *)SUNXI_CCM_BASE;
@@ -346,6 +347,7 @@ int sunxi_set_sramc_mode(void)
 	reg_val &= ~(0x1 << 0);
 	reg_val &= ~(0x1 << 16);
 	writel(reg_val, &ccm->de_clk_cfg);
+	#endif
 	return 0;
 }
 

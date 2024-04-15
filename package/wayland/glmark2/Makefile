@@ -11,7 +11,7 @@ PKG_VERSION:=7215c0f337dae0b232535549c37fca441747a891
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://launchpad.net/glmark2/
+PKG_SOURCE_URL:=https://sources.buildroot.net/
 #PKG_MD5SUM:=e15f173594e41afde37a09b26acc54a7
 
 PKG_LICENSE:=GPLv3+ SGIv1

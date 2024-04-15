@@ -559,8 +559,8 @@ static int axp2101_probe(struct platform_device *pdev)
 	if (!pm_power_off)
 		pm_power_off = axp2101_power_off;
 
-	device_create_file(&pdev->dev, &dev_attr_pmu_ws);
-	device_create_file(&pdev->dev, &dev_attr_axp_wakeup_event);
+	//device_create_file(&pdev->dev, &dev_attr_pmu_ws);
+	//device_create_file(&pdev->dev, &dev_attr_axp_wakeup_event);
 
 	/* wakeup-source process */
 #ifndef CONFIG_AXP_TWI_USED

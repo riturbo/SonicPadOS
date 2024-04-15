@@ -12,7 +12,7 @@ PKG_VERSION:=1.7.7
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://www.directfb.org/downloads/Core/DirectFB-1.7
+PKG_SOURCE_URL:=http://sources.buildroot.net/DirectFB-1.7.7.tar.gz
 PKG_MD5SUM:=
 
 PKG_LICENSE:=LGPLv2.1
